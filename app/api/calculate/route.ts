@@ -87,11 +87,13 @@ export async function POST(req: Request) {
       },
       source: "supabase",
     });
-  } catch (err) {
+    } catch (err) {
+    console.error("CALCULATE API ERROR:", err);
+
     return NextResponse.json(
       {
-        error: "Server error while calculating benefits",
-        details: err instanceof Error ? err.message : "Unknown error",
+        error: "Could not load live rates from Supabase",
+        details: err instanceof Error ? err.message : "Unknown server error",
       },
       { status: 500 }
     );

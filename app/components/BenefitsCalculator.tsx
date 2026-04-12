@@ -280,17 +280,18 @@ const errorBox: React.CSSProperties = {
   color: "#8a1c1c",
 };
 const containerStyle: React.CSSProperties = {
-  maxWidth: "700px",
+  maxWidth: "900px",
   margin: "0 auto",
-  padding: "20px",
-  background: "white",
-  borderRadius: "16px",
+  padding: "32px",
+  background: "#ffffff",
+  borderRadius: "20px",
   boxShadow: "0 8px 24px rgba(0,0,0,0.06)",
 };
 
 const titleStyle: React.CSSProperties = {
   fontSize: "28px",
   marginBottom: "20px",
+  color: "#111827",
 };
 
 const formGrid: React.CSSProperties = {
@@ -301,16 +302,19 @@ const formGrid: React.CSSProperties = {
 
 const labelStyle: React.CSSProperties = {
   display: "block",
-  marginBottom: "6px",
+  marginBottom: "8px",
   fontWeight: 600,
+  color: "#111827",
 };
 
 const inputStyle: React.CSSProperties = {
   width: "100%",
-  padding: "12px",
-  border: "1px solid #ccc",
-  borderRadius: "8px",
+  padding: "14px",
+  border: "1px solid #d1d5db",
+  borderRadius: "10px",
   fontSize: "16px",
+  color: "#111827",
+  backgroundColor: "#ffffff",
   boxSizing: "border-box",
 };
 
@@ -344,8 +348,8 @@ const resultHeader: React.CSSProperties = {
 };
 
 const mutedText: React.CSSProperties = {
-  color: "#5f6b7a",
-  margin: 0,
+  color: "#4b5563",
+  marginBottom: "8px",
 };
 
 const resultAmount: React.CSSProperties = {
