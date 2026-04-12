@@ -3,14 +3,18 @@
 import { useState } from "react";
 
 type CalcResult = {
-  uc: string;
-  breakdown: {
+  uc?: string;
+  breakdown?: {
     standard: number;
     children: number;
     rent: number;
     disability: number;
     deduction: string;
+    workAllowance?: number;
+    tariffIncome?: string;
   };
+  error?: string;
+  details?: string;
 };
 
 type FormState = {
@@ -206,38 +210,37 @@ export default function BenefitsCalculator() {
         </button>
       </div>
 
-      {result && result.breakdown ? (
-        <div style={resultCard}>
-          <div style={resultHeader}>
-            <div>
-              <p style={mutedText}>Estimated monthly Universal Credit</p>
-              <h2 style={resultAmount}>£{result.uc}</h2>
-            </div>
-          </div>
-            
+      {result?.breakdown ? (
+  <div style={resultCard}>
+    <div style={resultHeader}>
+      <div>
+        <p style={mutedText}>Estimated monthly Universal Credit</p>
+        <h2 style={resultAmount}>£{result.uc ?? "0.00"}</h2>
+      </div>
+    </div>
 
-          <div style={breakdownGrid}>
-            <BreakdownItem label="Standard allowance" value={result.breakdown.standard} />
-            <BreakdownItem label="Children" value={result.breakdown.children} />
-            <BreakdownItem label="Housing" value={result.breakdown.rent} />
-            <BreakdownItem label="Disability / LCWRA" value={result.breakdown.disability} />
-            <BreakdownItem label="Capital" value={Number(form.capital || 0)} />
-          </div>
+    <div style={breakdownGrid}>
+      <BreakdownItem label="Standard allowance" value={result.breakdown.standard} />
+      <BreakdownItem label="Children" value={result.breakdown.children} />
+      <BreakdownItem label="Housing" value={result.breakdown.rent} />
+      <BreakdownItem label="Disability / LCWRA" value={result.breakdown.disability} />
+      <BreakdownItem label="Capital" value={Number(form.capital || 0)} />
+    </div>
 
-          <div style={divider} />
+    <div style={divider} />
 
-          <div style={deductionRow}>
-            <span>Income deduction</span>
-            <strong>£{result.breakdown.deduction}</strong>
-          </div>
-        </div>
-      ) : result&& result.error ? (
-        <div style={errorBox}>
-        <h2 style={{ marginTop: 0 }}>Connection error</h2>
-        <p>{result.error}</p>
-        {result.details ? <p>{result.details}</p> : null}
-        </div>
-      ) : null}
+    <div style={deductionRow}>
+      <span>Income deduction</span>
+      <strong>£{result.breakdown.deduction}</strong>
+    </div>
+  </div>
+) : result?.error ? (
+  <div style={errorBox}>
+    <h2 style={{ marginTop: 0 }}>Connection error</h2>
+    <p>{result.error}</p>
+    {result.details ? <p>{result.details}</p> : null}
+  </div>
+) : null }
     </div>
   );
 }
