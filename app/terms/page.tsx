@@ -1,17 +1,33 @@
 export default function TermsPage() {
   return (
-    <div style={{ maxWidth: "800px", margin: "0 auto", padding: "20px" }}>
-      <h1>Terms of Use</h1>
+    <div style={{ maxWidth: 800, margin: "40px auto", padding: 20 }}>
+      <h1>Terms and Conditions</h1>
+
       <p>
-        By using this website, you accept that the results are estimates only and
-        may not reflect your full legal entitlement.
+        By using this website, you agree to the following terms.
       </p>
+
+      <h2>Use of the calculator</h2>
       <p>
-        You agree to verify important information through official channels before
-        relying on it.
+        The calculator provides estimates only and must not be relied upon as
+        financial or legal advice.
       </p>
+
+      <h2>Liability</h2>
       <p>
-        © Dharminder Singh Sandhu. All rights reserved.
+        We accept no liability for any loss or damage arising from the use of this
+        website or reliance on its results.
+      </p>
+
+      <h2>Availability</h2>
+      <p>
+        We aim to keep the service available at all times but do not guarantee
+        uninterrupted access.
+      </p>
+
+      <h2>Changes</h2>
+      <p>
+        We may update these terms at any time without notice.
       </p>
     </div>
   );

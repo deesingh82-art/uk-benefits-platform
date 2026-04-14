@@ -48,8 +48,17 @@ export default function RootLayout({
           </div>
         </header>
 
-        <div style={{ padding: "30px 20px" }}>{children}</div>
-      </body>
+        <body>
+  <div style={{ padding: "30px 20px" }}>
+    {children}
+
+    <footer style={{ marginTop: 40, textAlign: "center" }}>
+      <a href="/disclaimer" style={navLinkStyle}>Disclaimer</a> |{" "}
+      <a href="/privacy">Privacy</a> |{" "}
+      <a href="/terms">Terms</a>
+    </footer>
+  </div>
+</body>
     </html>
   );
 }
@@ -58,4 +67,5 @@ const navLinkStyle: React.CSSProperties = {
   color: "#0070f3",
   textDecoration: "none",
   fontWeight: "bold",
+
 };

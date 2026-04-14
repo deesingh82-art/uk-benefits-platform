@@ -1,18 +1,33 @@
 export default function DisclaimerPage() {
   return (
-    <div style={{ maxWidth: "800px", margin: "0 auto", padding: "20px" }}>
+    <div style={{ maxWidth: 800, margin: "40px auto", padding: 20 }}>
       <h1>Disclaimer</h1>
+
       <p>
-        This website provides estimate-based information only and does not
-        guarantee entitlement, assessment outcomes, or payment amounts.
+        This Benefits Calculator provides estimates only and is intended for
+        general informational purposes.
       </p>
+
       <p>
-        It is not affiliated with the UK Government, the Department for Work and
-        Pensions, HMRC, or any public authority.
+        It does not constitute financial advice, legal advice, or official
+        guidance. While we aim to keep calculations accurate and up to date,
+        we do not guarantee the accuracy or completeness of any results.
       </p>
+
       <p>
-        Users should verify important decisions through official guidance and, where
-        appropriate, independent professional advice before acting on results.
+        Your actual entitlement may vary depending on your individual
+        circumstances and official government assessments.
+      </p>
+
+      <p>
+        You should always seek advice from a qualified advisor or refer to
+        official government sources such as GOV.UK before making financial
+        decisions.
+      </p>
+
+      <p>
+        We are not affiliated with the UK Government, DWP, or any official
+        agency.
       </p>
     </div>
   );
