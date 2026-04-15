@@ -182,7 +182,7 @@ export default function BenefitsCalculator() {
         </Field>
 
         <div>
-  <label>Savings / capital (£)</label>
+  <label style={labelStyle}>Savings / capital (£)</label>
   <input
     name="capital"
     type="number"
@@ -193,7 +193,7 @@ export default function BenefitsCalculator() {
 </div>
 
 <div>
-  <label>Do you get housing element?</label>
+  <label style={labelStyle}>Do you get housing element?</label>
   <select
     name="hasHousingElement"
     value={form.hasHousingElement}
@@ -229,18 +229,35 @@ export default function BenefitsCalculator() {
 
     <div style={divider} />
 
-    <div style={deductionRow}>
-      <span>Income deduction</span>
-      <strong>£{result.breakdown.deduction}</strong>
-    </div>
-  </div>
+<div style={deductionRow}>
+  <span>Income deduction</span>
+  <strong>£{result.breakdown.deduction}</strong>
+</div>
+
+<div style={{ marginTop: "20px", textAlign: "center" }}>
+  <a
+    href="/help"
+    style={{
+      display: "inline-block",
+      padding: "12px 16px",
+      background: "#16a34a",
+      color: "#ffffff",
+      textDecoration: "none",
+      borderRadius: "8px",
+      fontWeight: 700,
+    }}
+  >
+    Get Help With Your Claim
+  </a>
+</div>
+</div>
 ) : result?.error ? (
   <div style={errorBox}>
     <h2 style={{ marginTop: 0 }}>Connection error</h2>
     <p>{result.error}</p>
     {result.details ? <p>{result.details}</p> : null}
   </div>
-) : null }
+) : null}
     </div>
   );
 }

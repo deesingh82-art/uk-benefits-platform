@@ -1,27 +1,25 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import "./globals.css";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Benefits Checker",
-  description: "Check possible UK benefits and LCWRA support",
+  description: "UK benefits calculator and LCWRA checker",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body style={{ margin: 0, fontFamily: "Arial, sans-serif", background: "#f5f7fb" }}>
+      <body>
         <header
           style={{
-            background: "white",
-            borderBottom: "1px solid #ddd",
-            padding: "16px 24px",
-            position: "sticky",
-            top: 0,
-            zIndex: 10,
+            background: "#ffffff",
+            borderBottom: "1px solid #e5e7eb",
+            padding: "20px 24px",
           }}
         >
           <div
@@ -33,11 +31,17 @@ export default function RootLayout({
               alignItems: "center",
             }}
           >
-            <div style={{ fontSize: "22px", fontWeight: "bold" }}>
+            <div
+              style={{
+                fontSize: "20px",
+                fontWeight: 700,
+                color: "#111827",
+              }}
+            >
               Benefits Checker
             </div>
 
-            <nav style={{ display: "flex", gap: "20px" }}>
+            <nav style={{ display: "flex", gap: "24px" }}>
               <Link href="/" style={navLinkStyle}>
                 Calculator
               </Link>
@@ -48,17 +52,33 @@ export default function RootLayout({
           </div>
         </header>
 
-        <body>
-  <div style={{ padding: "30px 20px" }}>
-    {children}
+        <main style={{ padding: "30px 20px" }}>{children}</main>
 
-    <footer style={{ marginTop: 40, textAlign: "center" }}>
-      <a href="/disclaimer" style={navLinkStyle}>Disclaimer</a> |{" "}
-      <a href="/privacy">Privacy</a> |{" "}
-      <a href="/terms">Terms</a>
-    </footer>
-  </div>
-</body>
+        <footer
+          style={{
+            marginTop: "40px",
+            padding: "20px",
+            textAlign: "center",
+            borderTop: "1px solid #e5e7eb",
+            background: "#ffffff",
+          }}
+        >
+          <div style={{ display: "flex", justifyContent: "center", gap: "16px", flexWrap: "wrap" }}>
+            <Link href="/disclaimer" style={footerLinkStyle}>
+              Disclaimer
+            </Link>
+            <Link href="/privacy" style={footerLinkStyle}>
+              Privacy
+            </Link>
+            <Link href="/terms" style={footerLinkStyle}>
+              Terms
+            </Link>
+            <Link href="/help" style={footerLinkStyle}>
+              Get Help
+            </Link>
+          </div>
+        </footer>
+      </body>
     </html>
   );
 }
@@ -67,5 +87,10 @@ const navLinkStyle: React.CSSProperties = {
   color: "#0070f3",
   textDecoration: "none",
   fontWeight: "bold",
+};
 
+const footerLinkStyle: React.CSSProperties = {
+  color: "#0070f3",
+  textDecoration: "none",
+  fontWeight: 600,
 };
