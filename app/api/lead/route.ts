@@ -1,35 +1,15 @@
 import { NextResponse } from "next/server";
-import { supabaseAdmin } from "../../../lib/supabaseAdmin";
 
 export async function POST(req: Request) {
   try {
-    const form = await req.formData();
+    const body = await req.json();
 
-    const lead = {
-      name: String(form.get("name") || ""),
-      email: String(form.get("email") || ""),
-      phone: String(form.get("phone") || ""),
-      postcode: String(form.get("postcode") || ""),
-      type: String(form.get("type") || ""),
-      message: String(form.get("message") || ""),
-    };
+    console.log("NEW LEAD:", body);
 
-    const { error } = await supabaseAdmin.from("leads").insert([lead]);
-
-    if (error) {
-      return NextResponse.json(
-        { error: "Could not save lead", details: error.message },
-        { status: 500 }
-      );
-    }
-
-    return NextResponse.redirect(new URL("/thank-you", req.url));
-  } catch (err) {
+    return NextResponse.json({ success: true });
+  } catch (error) {
     return NextResponse.json(
-      {
-        error: "Server error",
-        details: err instanceof Error ? err.message : "Unknown error",
-      },
+      { error: "Something went wrong" },
       { status: 500 }
     );
   }
